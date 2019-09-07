@@ -1,0 +1,2 @@
+﻿C:\Users\Warsaw\source\repos\SecondMVC\SecondMVC\SecondMVC.csproj : error  : The imported project file "C:\Users\Warsaw\source\repos\SecondMVC\SecondMVC\SecondMVC.csproj.user" could not be loaded. Root element is missing.  G:\Visual Studio 2017\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets
+

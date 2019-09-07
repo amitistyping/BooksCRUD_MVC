@@ -1,0 +1,77 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>
+        @using SecondMVC.ViewModels
+        @Model BookListViewModel
+    </title>
+</head>
+
+<body>
+    <div style="width:50%; margin:auto; padding-top:50px">
+        <form method="get" action="/Default/SearchBooks">
+            <div>
+                <div class="input-group">
+                    @*<label for="SearchBox">Search</label>*@
+                    <div style="width:20%; display:inline-block">
+                        <input class="form-control rounded-0" type="text" id="SearchBox" name="SearchBox" placeholder="type your search query" value="">
+                    </div>
+                    <div class="input-group-btn" style="width:8.5%; display:inline-block">
+                        <button type="submit" class="btn btn-danger rounded-0">Search</button>
+                    </div>
+                    <div style="width:25%; display:inline-block"> 
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-primary active rounded-0">
+                                <input type="radio" name="SearchFilter" id="RadioBook" autocomplete="off" checked /> Book Name
+                            </label>
+                            <label class="btn btn-primary rounded-0">
+                                <input type="radio" name="SearchFilter" id="RadioAuthor" autocomplete="off" /> Book Author
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+        <div style="padding-top:10px">
+            <table class="table table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" colspan="5">BOOK DATABASE</th>
+                    </tr>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Book Name</th>
+                        <th scope="col">Book Author</th>
+                        <th scope="col">Book Price</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                @foreach (BookViewModel item in Model.Books)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Author</td>
+                            <td>@item.Price</td>
+                            <td><a href="/Default/UpdateBook?id=@item.BookId" class="btn btn-link active rounded-0" role="button" aria-pressed="true">Update</a></td>
+                            <td><a href="/Default/DeleteBook?id=@item.BookId" class="btn btn-danger btn-block active rounded-0" role="button" aria-pressed="true">Delete</a></td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+        <a href="/Default/AddNew" class="btn btn-link btn-lg btn-block active rounded-0" role="button" aria-pressed="true">Add New</a>
+    </div>
+</body>
+</html>

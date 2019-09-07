@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+@model SecondMVC.Models.Books
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddBook</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <form method="post" action="~/Default/EditBook" style="width:30%; margin:auto; padding-top:13%">
+        <div class="form-group">
+            <label for="bookName">Book ID</label>
+            <input type="text" class="form-control" id="bookName" name="BookId" placeholder="type book name" value="@Model.BookId" readonly>
+        </div>
+        <div class="form-group">
+            <label for="bookName">Book Name</label>
+            <input type="text" class="form-control" id="bookName" name="name" placeholder="type book name" value="@Model.name">
+        </div>
+        <div class="form-group">
+            <label for="bookAuthor">Book Author</label>
+            <input type="text" class="form-control" id="bookAuthor" name="author" placeholder="type book author" value="@Model.author">
+        </div>
+        <div class="form-group">
+            <label for="bookPrice">Book Price</label>
+            <input type="text" class="form-control" id="bookPrice" name="price" placeholder="type book price" value="@Model.price">
+        </div>
+        <button type="submit" class="btn btn-danger">Update</button>
+        <button type="button" class="btn btn-secondary" value="Return">Cancel</button>
+    </form>
+</body>
+</html>
