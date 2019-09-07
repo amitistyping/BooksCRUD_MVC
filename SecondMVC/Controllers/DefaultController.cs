@@ -32,7 +32,7 @@ namespace SecondMVC.Controllers
                 bookViewModel.Price = book.price;
                 if (book.price > 10)
                 {
-                    bookViewModel.AuthorColor = "Orange";
+                    bookViewModel.AuthorColor = "Red";
                 }
                 bookViewModels.Add(bookViewModel);
             }
